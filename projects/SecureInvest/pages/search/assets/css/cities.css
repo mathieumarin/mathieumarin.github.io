@@ -1,0 +1,262 @@
+/***********************************/
+/*            General              */
+/***********************************/
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+}
+
+input, select {
+    font-family: 'Urbanist', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/***********************************/
+/*             Cities              */
+/***********************************/
+
+.cities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 150px auto 0 auto;
+    width: 85%;
+}
+
+.cities-header {
+    margin-bottom: 35px;
+    width: 50%;
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cities-header h1 {
+    text-align: center;
+    font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
+    margin: 0;
+}
+
+.cities-header p {
+    text-align: center;
+    font-size: calc(16px + (14 - 14) * ((100vw - 320px) / (1600 - 320)));
+    margin: 25px 0 0 0;
+}
+
+.cities-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cities-btn {
+    background-image: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    border-radius: 35px;
+    font-size: calc(18px + (18 - 16) * ((100vw - 320px) / (1600 - 320)));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 25%;
+    height: 40px;
+    margin-top: 35px;
+    font-weight: 600;
+}
+
+.cities-btn:hover {
+    background-image: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
+}
+
+/* Mobile, Tablet and Laptop */
+@media screen and (max-width: 1200px)
+{
+    .cities-header {
+        width: 75%;
+    }
+
+    .cities-btn {
+        width: 35%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px)
+{
+    .cities-header {
+        width: 90%;
+    }
+
+    .cities-btn {
+        width: 50%;
+    }
+}
+
+
+/***********************************/
+/*             Select              */
+/***********************************/
+
+.select-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: calc(16px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
+    color: #666;
+    font-weight: 600;
+    border: solid 2px #666;
+    border-radius: 80px;
+}
+
+@media (min-width: 768px) {
+    .select-box {
+        width: 70%;
+    }
+  
+}
+  
+@media (min-width: 992px) {
+    .select-box {
+        width: 50%;
+    }
+  
+}
+  
+@media (min-width: 1200px) {
+    .select-box {
+        width: 30%;
+    }
+}
+.select-box__current {
+    position: relative;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+}
+  
+.select-box__current:focus + .select-box__list {
+    opacity: 1;
+    -webkit-animation-name: none;
+    animation-name: none;
+}
+  
+.select-box__current:focus + .select-box__list .select-box__option {
+    cursor: pointer;
+}
+  
+.select-box__current:focus .select-box__icon {
+    transform: translateY(-50%) rotate(180deg);
+  
+}
+  
+.select-box__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    opacity: 0.3;
+    transition: 0.2s ease;
+}
+  
+.select-box__value {
+    display: flex;
+}
+
+.select-box__input {
+    display: none;
+}
+  
+.select-box__input:checked + .select-box__input-text {
+    display: block;
+}
+  
+.select-box__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 80px;
+}
+  
+.select-box__list {
+    z-index: 500;
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    -webkit-animation-name: HideList;
+    animation-name: HideList;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: step-start;
+    animation-timing-function: step-start;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+  
+.select-box__option {
+    display: block;
+    padding: 15px;
+    background-color: white; 
+}
+  
+.select-box__option:hover, .select-box__option:focus {
+    color: rgba(15,56,94,1);
+    background-color: #f1f1f1;
+}
+  
+@-webkit-keyframes HideList {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+  
+@keyframes HideList {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
