@@ -72,7 +72,10 @@
                 </div>
                 <div class="artisan-main">
                     <div class="artisan-card">
-                        <a href="#">
+                        <a href="#" onclick="toggleDescription('wood-carpenter')">
+                            <div id="wood-carpenter-overlay" class="artisan-overlay" style="display: none;">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
                             <div class="artisan-content">
                                 <i class="fa-solid fa-hammer"></i>
                                 <h2>Menuisier Bois</h2>
@@ -80,7 +83,10 @@
                         </a>
                     </div>
                     <div class="artisan-card">
-                        <a href="#">
+                        <a href="#" onclick="toggleDescription('aluminium-carpenter')">
+                            <div id="aluminium-carpenter-overlay" class="artisan-overlay" style="display: none;">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
                             <div class="artisan-content">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                                 <h2>Menuisier Alu</h2>
@@ -88,7 +94,10 @@
                         </a>
                     </div>
                     <div class="artisan-card">
-                        <a href="#">
+                        <a href="#" onclick="toggleDescription('plumber')">
+                            <div id="plumber-overlay" class="artisan-overlay" style="display: none;">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
                             <div class="artisan-content">
                                 <i class="fa-solid fa-wave-square"></i>
                                 <h2>Plombier</h2>
@@ -96,7 +105,10 @@
                         </a>
                     </div>
                     <div class="artisan-card">
-                        <a href="#">
+                        <a href="#" onclick="toggleDescription('tiler')">
+                            <div id="tiler-overlay" class="artisan-overlay" style="display: none;">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
                             <div class="artisan-content">
                                 <i class="fa-solid fa-ruler-combined"></i>
                                 <h2>Carreleur</h2>
@@ -104,7 +116,10 @@
                         </a>
                     </div>
                     <div class="artisan-card">
-                        <a href="#">
+                        <a href="#" onclick="toggleDescription('architect')">
+                            <div id="architect-overlay" class="artisan-overlay" style="display: none;">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
                             <div class="artisan-content">
                                 <i class="fa-solid fa-pencil"></i>
                                 <h2>Architecte</h2>
@@ -112,8 +127,193 @@
                         </a>
                     </div>
                 </div>
-                <div class="artisan-btn">
-                    <a href="#">Autres</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="description">
+                <div id="wood-carpenter" class="description-card swing-in-top-fwd" style="display: none;">
+                    <div class="description-left">
+                        <img src="assets/img/wood-carpenter.jpg" alt="wood-carpenter">
+                    </div>
+                    <div class="description-right">
+                        <h2>Menuisier Bois</h2>
+                        <div class="description-links">
+                            <div class="description-btn">
+                                <a href="#">Dressing</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Meubles</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Portes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aluminium-carpenter" class="description-card swing-in-top-fwd" style="display: none;">
+                    <div class="description-left">
+                        <img src="assets/img/aluminium-carpenter.jpg" alt="aluminium-carpenter">
+                    </div>
+                    <div class="description-right">
+                        <h2>Menuisier Alu</h2>
+                        <div class="description-links">
+                            <div class="description-btn">
+                                <a href="#">Dressing</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Meubles</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Portes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="plumber" class="description-card swing-in-top-fwd" style="display: none;">
+                    <div class="description-left">
+                        <img src="assets/img/plumber.jpg" alt="plumber">
+                    </div>
+                    <div class="description-right">
+                        <h2>Plombier</h2>
+                        <div class="description-links">
+                            <div class="description-btn">
+                                <a href="#">Dressing</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Meubles</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Portes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tiler" class="description-card swing-in-top-fwd" style="display: none;">
+                    <div class="description-left">
+                        <img src="assets/img/tiler.jpg" alt="tiler">
+                    </div>
+                    <div class="description-right">
+                        <h2>Carreleur</h2>
+                        <div class="description-links">
+                            <div class="description-btn">
+                                <a href="#">Dressing</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Meubles</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Portes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="architect" class="description-card swing-in-top-fwd" style="display: none;">
+                    <div class="description-left">
+                        <img src="assets/img/architect.jpg" alt="tiler">
+                    </div>
+                    <div class="description-right">
+                        <h2>Architecte</h2>
+                        <div class="description-links">
+                            <div class="description-btn">
+                                <a href="#">Dressing</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Meubles</a>
+                            </div>
+                            <div class="description-btn">
+                                <a href="#">Portes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section>
+            <div class="portfolio">
+                <div class="portfolio-header">
+                    <h2>Exemples de réalisations</h2>
+                </div>
+                <div class="portfolio-main">
+                    <div class="portfolio-picture">
+                        <img src="assets/img/portfolio-1.jpg" alt="portfolio-1">
+                    </div>
+                    <div class="portfolio-picture">
+                        <img src="assets/img/portfolio-2.jpg" alt="portfolio-2">
+                    </div>
+                    <div class="portfolio-picture">
+                        <img src="assets/img/portfolio-3.jpg" alt="portfolio-3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advice -->
+        <section>
+            <div class="advice">
+                <div class="advice-header">
+                    <h2>Les derniers avis clients</h2>
+                </div>
+                <div class="advice-main">
+                    <div class="advice-card">
+                        <div class="advice-top">
+                            <div class="advice-stars">
+                                <span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </span>
+                            </div>
+                            <p>Il y a 12 heures</p>
+                        </div>
+                        <div class="advice-content">
+                            <h2>Superbe prestation !</h2>
+                            <p>Le vendeur était très agréable et j'ai eu tout de suite ce que je cherchais ! Les conseils étaient vraiment très complets...</p>
+                            <h3>Micheline</h3>
+                        </div>
+                    </div>
+                    <div class="advice-card">
+                        <div class="advice-top">
+                            <div class="advice-stars">
+                                <span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </span>
+                            </div>
+                            <p>Il y a 12 heures</p>
+                        </div>
+                        <div class="advice-content">
+                            <h2>Superbe prestation !</h2>
+                            <p>Le vendeur était très agréable et j'ai eu tout de suite ce que je cherchais ! Les conseils étaient vraiment très complets...</p>
+                            <h3>Micheline</h3>
+                        </div>
+                    </div>
+                    <div class="advice-card">
+                        <div class="advice-top">
+                            <div class="advice-stars">
+                                <span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </span>
+                            </div>
+                            <p>Il y a 12 heures</p>
+                        </div>
+                        <div class="advice-content">
+                            <h2>Superbe prestation !</h2>
+                            <p>Le vendeur était très agréable et j'ai eu tout de suite ce que je cherchais ! Les conseils étaient vraiment très complets...</p>
+                            <h3>Micheline</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -191,6 +391,53 @@
 
     <!-- Scripts -->
     <script src="../assets/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        
+        var currentTarget = null;
+
+        /**
+        * Smooth scrolling to a specific element 
+        **/
+        function scrollTo( target ) {
+            if (target.length) {
+                $("html, body").stop().animate( { scrollTop: $(target).offset().top - 50}, 500);
+            }
+        }
+
+        /**
+        * Toggle the details of the corresponding target 
+        **/
+        function toggleDescription(target) {
+
+            if (currentTarget == null)
+            {
+                document.getElementById(target).style.display = "flex";
+                document.getElementById(target + '-overlay').style.display = "flex";
+                currentTarget = target;
+                scrollTo('#' + target);
+            }
+            else if (currentTarget == target)
+            {
+                document.getElementById(currentTarget).style.display = "none";
+                document.getElementById(target + '-overlay').style.display = "none";
+                currentTarget = null;
+            }
+            else
+            {
+                document.getElementById(currentTarget).style.display = "none";
+                document.getElementById(currentTarget + '-overlay').style.display = "none";
+                document.getElementById(target).style.display = "flex";
+                document.getElementById(target + '-overlay').style.display = "flex";
+                currentTarget = target;
+                scrollTo('#' + target);
+            }
+        }
+
+        
+
+    </script>
 
 </body>
 </html>
