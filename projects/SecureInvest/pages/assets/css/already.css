@@ -36,6 +36,10 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.already h5 {
+    color: red;
+    font-size: 50px;
+}
 
 .already-header h1 {
     color: white;
