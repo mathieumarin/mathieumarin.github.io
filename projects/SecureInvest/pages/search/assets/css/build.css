@@ -207,14 +207,14 @@ header p {
 .info-header {
     width: 90%;
     margin-bottom: 30px;
-    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin: 0;
 }
 
 .info-header h1 {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
     margin: 0;
