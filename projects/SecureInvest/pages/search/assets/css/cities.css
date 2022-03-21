@@ -53,19 +53,23 @@ a {
 .cities-header {
     margin-bottom: 35px;
     width: 50%;
+}
+
+.cities-header h1 {
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.cities-header h1 {
     text-align: center;
     font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
     margin: 0;
 }
 
 .cities-header p {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     font-size: calc(16px + (14 - 14) * ((100vw - 320px) / (1600 - 320)));
     margin: 25px 0 0 0;

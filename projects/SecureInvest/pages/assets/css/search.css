@@ -29,14 +29,13 @@ a {
 .search-header {
     width: 90%;
     margin-bottom: 20px;
+}
+
+.search-header h1 {
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.search-header h1 {
-    color: white;
     text-align: center;
     font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
     margin: 0;
@@ -76,25 +75,29 @@ a {
 }
 
 .search-content {
+    padding: 30px 20px;
+}
+
+.search-content h2 {
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 30px 20px;
-}
-
-.search-content:hover {
-    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.search-content h2 {
     font-size: calc(20px + (20 - 18) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .search-content i {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: calc(50px + (50 - 45) * ((100vw - 320px) / (1600 - 320)));
     margin-bottom: 10px;
+}
+
+.search-content h2:hover, .search-content i:hover {
+    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

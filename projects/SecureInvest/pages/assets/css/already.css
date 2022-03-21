@@ -29,17 +29,16 @@ a {
 .already-header {
     width: 90%;
     margin-bottom: 20px;
+}
+
+.already-header h1 {
+    text-align: center;
+    font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
+    margin: 0;
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.already-header h1 {
-    color: white;
-    text-align: center;
-    font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
-    margin: 0;
 }
 
 .already-main {
@@ -78,27 +77,31 @@ a {
 }
 
 .already-content {
+    padding: 30px 20px;
+}
+
+.already-content h2 {
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 30px 20px;
-}
-
-.already-content:hover {
-    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.already-content h2 {
     font-size: calc(20px + (20 - 18) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .already-content i {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: calc(50px + (50 - 45) * ((100vw - 320px) / (1600 - 320)));
     margin-bottom: 10px;
+}
+
+.already-content h2:hover,  .already-content i:hover {
+    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .already-in-development {

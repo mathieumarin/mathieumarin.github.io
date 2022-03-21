@@ -70,14 +70,13 @@ header p {
 .future-header {
     width: 90%;
     margin-bottom: 20px;
+}
+
+.future-header h1 {
     background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.future-header h1 {
-    color: white;
     text-align: center;
     font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
     margin: 0;
@@ -126,20 +125,6 @@ header p {
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
 }
 
-.future-content {
-    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.future-content:hover {
-    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .future-card img {
     width: 100%;
 }
@@ -153,13 +138,28 @@ header p {
 }
 
 .future-content h2 {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0;
     font-size: calc(20px + (20 - 18) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .future-content p {
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0;
     font-size: calc(14px + (14 - 12) * ((100vw - 320px) / (1600 - 320)));
+}
+
+.future-content h2:hover, .future-content p:hover {
+    background: linear-gradient(130deg, rgba(66,168,138,1) 0%, rgba(15,56,94,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .future-btn {
@@ -212,10 +212,6 @@ header p {
 .info-header {
     width: 90%;
     margin-bottom: 30px;
-    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin: 0;
 }
 
@@ -223,6 +219,10 @@ header p {
     text-align: center;
     font-size: calc(25px + (25 - 20) * ((100vw - 320px) / (1600 - 320)));
     margin: 0;
+    background: linear-gradient(130deg, rgba(81,206,169,1) 0%, rgba(25,93,157,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .info-main {
