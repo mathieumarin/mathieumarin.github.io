@@ -13,29 +13,59 @@
 
     <style>
 
-        /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: var(--gray-200) }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+        /* Global font */
+        body { font-family: 'Roboto', serif; }
+
+        /* Menu */
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { background-color: #fd7e14 }
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { background-color: #fd9843 }
+        .container-menu.menu-desktop { background-color: #212529 }
+        .container-menu.menu-mobile { background-color: #212529 }
+        .container-menu.menu-mobile ul.mobile-display { background-color: #212529 }
+        .container-menu a:link,
+        .container-menu a:visited { color: #fff }
+        .container-menu a:focus,
+        .container-menu a:hover,
+        .container-menu a:active { color: #ced4da }
+
+        /* Hero Block */
+        header.hero-block-js h1 { color: #fff }
+        header.hero-block-js h2 {
+            color: #adb5bd;
+            font-size: calc(18px + (26 - 18) * ((100vw - 320px) / (1600 - 320)));
+        }
+        header.hero-block-js { background-color: #212529}
 
         /* Main Colours */
         .theme-js { 
-            background-color: #fff;
-            /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); */
+            background-color: #fff4d9;
         }
-
-        .theme-js .col-2 { background-color: var(--gray-200) }
+        .theme-js .col-2 { background-color: #feeab8; border-radius: 20px;}
         .theme-js h3 { color: #222 }
         .theme-js p { color: #222 }
 
         /* Button Colours: passive state */
-        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s }
+        .theme-js a.btn { border: none; color: #fff; background-color: #000; transition: 0.2s }
 
         /* Button Colours: active state */
-        .theme-js a.btn:hover { background-color: darkblue }
+        .theme-js a.btn:hover { background-color: #495057 }
 
-        /* .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } */
-        /* .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } */
+        /* Footer */
+        footer h2 { color: #fff; }
+        footer h3 { color: #fd7e14; }
+        footer { background-color: #343a40; }
+        .footer-links, .footer-icons {  color: #fff;}
 
     </style>
 
@@ -50,11 +80,11 @@
     <!-- navigation menu -->
 
     <nav class="container-menu menu-desktop menu-sticky">
-        <a href="#"><img src="../../assets/img/website-logo.png" alt="website logo"></a>
+        <a href="#"><img src="../../assets/img/website-logo-custom.png" alt="website logo"></a>
         <ul class="">
             <li><a href="../../index.html">Home</a></li>
             <li><a href="../../portfolio/index.html">Portfolio</a></li>
-            <li><a href="../../contact/index.html" id="btn-cta"><span>Contact</span><i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="../../contact/index.html" id="btn-cta" class="btn btn-primary btn-rounded"><span>Contact</span><i class="fas fa-arrow-right"></i></a></li>
         </ul>
         <div class="item-icon">
             <div class="bar1"></div>
@@ -64,11 +94,18 @@
     </nav>
         
     <!-- header hero block -->
-    <header class="hero-block hero-block-js">
+    <header class="hero-block hero-block-js hero-half half-img-right text-center-mobile">
+        <div class="col-2">
         <div class="hero-text-container">
             <h1>JavaScript Projects</h1>
             <h2>A selection of my recent JavaScript projects.</h2>
-            <img src="../../assets/img/code.png" alt="Sample JavaScript code">
+            
+        </div>
+    </div>
+        <div class="col-2">
+            <div class="hero-bg-media">
+                <img src="../../assets/img/code.png" alt="Sample JavaScript code">
+            </div>
         </div>
     </header>
 
@@ -84,7 +121,7 @@
                 <p>Populates an HTML table with data stored in an array. Includes the option to remove data items.</p>
                 
                 <div class="container-btn">
-                    <a href="data-tables/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="data-tables/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -95,7 +132,7 @@
                 <p>Uses the Fetch API to retrieve current weather information for the city of Dublin, Ireland.</p>
                 
                 <div class="container-btn">
-                    <a href="weather/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="weather/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -106,7 +143,7 @@
                 <p>Uses the Fetch API to retrieve a searchable list of movie titles and images from the Internet Movie Database.</p>
                 
                 <div class="container-btn">
-                    <a href="movies/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="movies/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -117,7 +154,7 @@
                 <p>Uses the Fetch API to retrieve a randomly-choosen selection of ten inspiring quotations.</p>
                 
                 <div class="container-btn">
-                    <a href="quotes/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="quotes/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -128,7 +165,7 @@
                 <p>Uses CSS variables and HTML custom data attributes to adjust the filter blur property of an image.</p>
                 
                 <div class="container-btn">
-                    <a href="image-blur-filter/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="image-blur-filter/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -139,7 +176,7 @@
                 <p>An increment and decrement counter that changes the colour of the number displayed on the web page.</p>
                 
                 <div class="container-btn">
-                    <a href="counter/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="counter/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -150,7 +187,7 @@
                 <p>Calculates the tip for a restaurant bill based on the level of service and the number of customers.</p>
                 
                 <div class="container-btn">
-                    <a href="tip-calculator/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="tip-calculator/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -161,7 +198,7 @@
                 <p>A slideshow with an array of images from Dublin city, Ireland.</p>
                 
                 <div class="container-btn">
-                    <a href="image-slideshow/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="image-slideshow/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -173,7 +210,7 @@
                 <p>Uses an array of hexadecimal values to randomly generate a background colour for the web page.</p>
                 
                 <div class="container-btn">
-                    <a href="colours/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="colours/index.html" class="btn btn-primary btn-rounded"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -183,26 +220,23 @@
 
     
     <!-- footer -->
-	<footer>
+    <footer>
 
-		<h2>Your Name Here</h2>
+		<h2>Mathieu Marin</h2>
 
 		<h3>Excellence in digital creation</h3>
 
 		<ul class="footer-links">
 			<li><a href="../../index.html">Home</a></li>
-			<li><a href="../../portfolio/index.html">Portfolio</a></li>
+			<li><a href="../index.html">Portfolio</a></li>
 			<li><a href="../../contact/index.html">Contact</a></li>
 		</ul>
 
 		<ul class="footer-icons">
-			<li><a href="https://www.linkedin.com/nnnnnnnnnnn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/nnnnnnnnnn" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="https://github.com/mathieumarin" target="_blank"><i class="fab fa-github-square"></i></a></li>
 		</ul>
 
-		<p class="index.html"> <a href="../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
-       
-    </footer>
+	</footer>
 
     <script src="../../assets/js/menu.js"></script>
 
