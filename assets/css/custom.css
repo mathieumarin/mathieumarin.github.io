@@ -176,6 +176,7 @@ header.hero-block img { opacity: 0.5; }
 .theme-one .subtitle a { color: var(--orange-500); }
 .theme-one .subtitle a:hover { background-color: transparent }
 
+/* Footer */
 footer h3 { color: var(--orange-500); }
 footer.footer-links {  color: red;}
 footer { background-color: var(--gray-800); }
