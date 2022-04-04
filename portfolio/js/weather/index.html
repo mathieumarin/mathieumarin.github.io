@@ -47,6 +47,31 @@
         }
         header.hero-block-js { background-color: #212529}
 
+        /* Main colors */
+        body 
+        {
+            background-color: #fff4d9;
+        }
+
+        .btn-solid { 
+            margin-top: 20px;
+            padding: 15px 30px;
+            display: inline-block;
+            font-size: 20px;
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .btn-solid:hover { 
+            background-color: #343a40;
+            color: #fff
+        }
+
+        #weather-box h3 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
         /* Footer */
         footer h2 { color: #fff; }
         footer h3 { color: #fd7e14; }
@@ -133,13 +158,42 @@
     <!-- main content with sections -->
     <main>
         
-        <section class="container-flex theme-js">
+        <section class="container-flex text-center" style="padding-bottom: 0">
+            <div class="col-1 text-center">
+                <button class="btn btn-solid btn-rounded" id="btn-quotes">View weather</button>
+            </div>
+    
+        </section>
 
+        <section class="container-flex text-center" id="weather-box">
+    
+    
         </section>
 
     </main>
 
     <script>
+
+        document.querySelector("#btn-quotes").addEventListener("click", fetchWeather);
+
+        function fetchWeather()
+        {
+            fetch("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=bc425ac2188d406c884f4fdd88b339f0")
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data);
+                // Updates the content of the weather box with the weather data
+                document.querySelector("#weather-box").innerHTML = `
+                    <div class="col-1 text-center">
+                        <h2>Weather</h2>
+                        <h3>The weather in the UK is currently ${data.weather[0].description}</h3>
+                        <h3>The temperature is ${data.main.temp} degrees</h3>
+                    </div>
+                `;
+            })
+        }
 
     </script>
 
