@@ -51,7 +51,9 @@
         .theme-js { 
             background-color: #fff4d9;
         }
-        .theme-js .col-2 { background-color: #feeab8; border-radius: 20px;}
+        .theme-js .col-2 { 
+            background: linear-gradient(130deg, rgba(254,234,184,1) 0%, rgba(255,214,111,1) 100%); border-radius: 20px;
+        }
         .theme-js h3 { color: #222 }
         .theme-js p { color: #222 }
 
@@ -67,6 +69,94 @@
         footer { background-color: #343a40; }
         .footer-links, .footer-icons {  color: #fff;}
 
+        /**
+        * ----------------------------------------
+        * animation slide-in-blurred-top
+        * ----------------------------------------
+        */
+
+        .slide-in-blurred-top {
+            -webkit-animation: slide-in-blurred-top 1.1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+                    animation: slide-in-blurred-top 1.1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        }
+
+        @-webkit-keyframes slide-in-blurred-top {
+            0% {
+            -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+                    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+            -webkit-transform-origin: 50% 0%;
+                    transform-origin: 50% 0%;
+            -webkit-filter: blur(40px);
+                    filter: blur(40px);
+            opacity: 0;
+            }
+            100% {
+            -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                    transform: translateY(0) scaleY(1) scaleX(1);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            -webkit-filter: blur(0);
+                    filter: blur(0);
+            opacity: 1;
+            }
+        }
+        @keyframes slide-in-blurred-top {
+            0% {
+            -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+                    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+            -webkit-transform-origin: 50% 0%;
+                    transform-origin: 50% 0%;
+            -webkit-filter: blur(40px);
+                    filter: blur(40px);
+            opacity: 0;
+            }
+            100% {
+            -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                    transform: translateY(0) scaleY(1) scaleX(1);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            -webkit-filter: blur(0);
+                    filter: blur(0);
+            opacity: 1;
+            }
+        }
+
+        /**
+        * ----------------------------------------
+        * animation tilt-in-fwd-tr
+        * ----------------------------------------
+        */
+
+        .tilt-in-fwd-tr {
+            -webkit-animation: tilt-in-fwd-tr 1.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                    animation: tilt-in-fwd-tr 1.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        @-webkit-keyframes tilt-in-fwd-tr {
+            0% {
+            -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                    transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+            opacity: 0;
+            }
+            100% {
+            -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                    transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+            opacity: 1;
+            }
+        }
+        @keyframes tilt-in-fwd-tr {
+            0% {
+            -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+                    transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+            opacity: 0;
+            }
+            100% {
+            -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+                    transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+            opacity: 1;
+            }
+        }
+
     </style>
 
 	<!-- Font Awesome 6.1 icons -->
@@ -78,7 +168,6 @@
 <body>
 
     <!-- navigation menu -->
-
     <nav class="container-menu menu-desktop menu-sticky">
         <a href="#"><img src="../../assets/img/website-logo-custom.png" alt="website logo"></a>
         <ul class="">
@@ -97,14 +186,14 @@
     <header class="hero-block hero-block-js hero-half half-img-right text-center-mobile">
         <div class="col-2">
         <div class="hero-text-container">
-            <h1>JavaScript Projects</h1>
-            <h2>A selection of my recent JavaScript projects.</h2>
+            <h1 class="slide-in-blurred-top">JavaScript Projects</h1>
+            <h2 class="slide-in-blurred-top">A selection of my recent JavaScript projects.</h2>
             
         </div>
     </div>
         <div class="col-2">
             <div class="hero-bg-media">
-                <img src="../../assets/img/code.png" alt="Sample JavaScript code">
+                <img class="tilt-in-fwd-tr" src="../../assets/img/code.png" alt="Sample JavaScript code">
             </div>
         </div>
     </header>

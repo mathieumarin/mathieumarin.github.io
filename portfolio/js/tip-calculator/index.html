@@ -13,29 +13,137 @@
 
     <style>
 
-        /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: var(--gray-200) }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+        /* Global font */
+        body { font-family: 'Roboto', serif; }
+
+        /* Menu */
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { background-color: #fd7e14 }
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { background-color: #fd9843 }
+        .container-menu.menu-desktop { background-color: #212529 }
+        .container-menu.menu-mobile { background-color: #212529 }
+        .container-menu.menu-mobile ul.mobile-display { background-color: #212529 }
+        .container-menu a:link,
+        .container-menu a:visited { color: #fff }
+        .container-menu a:focus,
+        .container-menu a:hover,
+        .container-menu a:active { color: #ced4da }
+
+        /* Hero Block */
+        header.hero-block-js h1 { color: #fff }
+        header.hero-block-js h2 {
+            color: #adb5bd;
+            font-size: calc(18px + (26 - 18) * ((100vw - 320px) / (1600 - 320)));
+        }
+        header.hero-block-js { background-color: #212529}
 
         /* Main Colours */
         .theme-js { 
-            background-color: #fff;
-            /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 45%;
+            text-align: center;
         }
 
-        .theme-js .col-2 { background-color: var(--gray-200) }
-        .theme-js h3 { color: #222 }
-        .theme-js p { color: #222 }
+        .theme-js p { 
+            color: #212529;
+            font-size: 25px;
+            margin-top: 25px;
+         }
+        .theme-js button { padding: 15px 50px; margin: 50px auto; font-size: 15px;}
+        .container-flex { 
+            margin: 50px auto;
+            background: linear-gradient(130deg, rgba(254,234,184,1) 0%, rgba(255,214,111,1) 100%);
+            border-radius: 35px;
+        }
 
-        /* Button Colours: passive state */
-        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s }
+        .theme-js input,  .theme-js select{
+            height: 40px;
+            width: 100%;
+            font-size: 20px;
+            text-align: center;
+            border: solid 2px #ccc;
+            border-radius: 35px;
+            margin-top: 10px;
+            background-color: #ffffff80;
+            border-color: #ffd670;
+        }
 
-        /* Button Colours: active state */
-        .theme-js a.btn:hover { background-color: darkblue }
+        #tipDisplayBox {
+            margin-top: 75px;
+        }
 
-        /* .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } */
-        /* .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } */
+        #tipDisplayBox p {
+            margin-top: 0;
+            font-size: 35px;
+        }
+
+        /* Button */
+        .theme-js button { border: none; color: #fff; background-color: #000; transition: 0.2s }
+        .theme-js button:hover { background-color: #495057 }
+
+        /* Footer */
+        footer h2 { color: #fff; }
+        footer h3 { color: #fd7e14; }
+        footer { background-color: #343a40; }
+        .footer-links, .footer-icons {  color: #fff; }
+
+        /**
+        * ----------------------------------------
+        * animation scale-in-left
+        * ----------------------------------------
+        */
+
+        .scale-in-left {
+	        -webkit-animation: scale-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        @-webkit-keyframes scale-in-left {
+        0% {
+            -webkit-transform: scale(0);
+                    transform: scale(0);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        }
+        @keyframes scale-in-left {
+        0% {
+            -webkit-transform: scale(0);
+                    transform: scale(0);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        }
 
     </style>
 
@@ -48,13 +156,12 @@
 <body>
 
     <!-- navigation menu -->
-
     <nav class="container-menu menu-desktop menu-sticky">
-        <a href="#"><img src="../../../assets/img/website-logo.png" alt="website logo"></a>
+        <a href="#"><img src="../../../assets/img/website-logo-custom.png" alt="website logo"></a>
         <ul class="">
             <li><a href="../../../index.html">Home</a></li>
             <li><a href="../../../portfolio/index.html">Portfolio</a></li>
-            <li><a href="../../../contact/index.html" id="btn-cta"><span>Contact</span><i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="../../../contact/index.html" id="btn-cta" class="btn btn-primary btn-rounded"><span>Contact</span><i class="fas fa-arrow-right"></i></a></li>
         </ul>
         <div class="item-icon">
             <div class="bar1"></div>
@@ -66,8 +173,8 @@
     <!-- header hero block -->
     <header class="hero-block hero-block-js">
         <div class="hero-text-container">
-            <h1>Tip Calculator <span>JavaScript Project</span></h1>
-            <h2>Calculates the tip for a restaurant bill based on the level of service and the number of customers. View my complete collection of <a href="../index.html">JavaScript projects</a>.</h2>
+            <h1 class="scale-in-left">Tip Calculator <span>JavaScript Project</span></h1>
+            <h2 class="scale-in-left">Calculates the tip for a restaurant bill based on the level of service and the number of customers. View my complete collection of <a href="../index.html">JavaScript projects</a>.</h2>
         </div>
     </header>
 
@@ -75,37 +182,89 @@
     <main>
         
         <section class="container-flex theme-js" id="conta">
+            <div>
+                <form>
+                <p>How much was your bill?
+                
+                    <input id="billAmount" type="text" placeholder="Bill Amount"></p>
+            
+                    <p>How was your service? <select id="serviceQuality">
+                        <option disabled selected value="0">-- Choose an Option --</option>
+                        <option value="0.3">30&#37; &#45; Outstanding</option>
+                        <option value="0.2">20&#37; &#45; Good</option>
+                        <option value="0.15">15&#37; &#45; It was OK</option>
+                        <option value="0.1">10&#37; &#45; Bad</option>
+                        <option value="0.05">5&#37; &#45; Terrible</option>
+                    </select></p>
+            
+                </form>
+
+                <p>How many people are sharing the bill?
+                <input id="numOfPeople" type="text" placeholder="Number of People" maxlength="
+                4"></p>
+
+                <button type="button" class="btn btn-rounded" id="calculate" onclick="CalculateTip()"> <i class="fa-solid fa-calculator"></i>   Calculate Tip</button>
+            </div>
+            <!--calculator end-->
+            
+            <!--totalTip -->
+            <div id="tipDisplayBox">
+                <p>Total tip: €<span id="tipTotal"></span></p>
+                <p><b>Tip each: €<span id="tipEach"></span></b></p>
+            </div>
 
         </section>
 
     </main>
 
+    <!-- JavaScript code start below -->
     <script>
-        
-    </script>
+
+        document.body.style.backgroundColor = "#fff4d9";
+
+        function CalculateTip() {
+
+            let billAmount = document.getElementById("billAmount").value;
+            let serviceQuality = document.getElementById("serviceQuality").value;
+            let numOfPeople = document.getElementById("numOfPeople").value;
+
+            var totalTip = parseFloat(billAmount) * (1 + parseFloat(serviceQuality));
+            var tip = 0;
+
+            if (parseInt(numOfPeople) > 0)
+            {
+                tip = totalTip / numOfPeople;
+            }
+            else 
+            {
+                tip = totalTip;
+            }
+
+            document.getElementById("tipEach").innerHTML = tip.toString();
+            document.getElementById("tipTotal").innerHTML = totalTip.toString();
+        }
+
+</script>
 
     
     <!-- footer -->
-	<footer>
+    <footer>
 
-		<h2>Your Name Here</h2>
+		<h2>Mathieu Marin</h2>
 
 		<h3>Excellence in digital creation</h3>
 
 		<ul class="footer-links">
 			<li><a href="../../../index.html">Home</a></li>
-			<li><a href="../../../portfolio/index.html">Portfolio</a></li>
+			<li><a href="../../index.html">Portfolio</a></li>
 			<li><a href="../../../contact/index.html">Contact</a></li>
 		</ul>
 
 		<ul class="footer-icons">
-			<li><a href="https://www.linkedin.com/nnnnnnnnnnn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/nnnnnnnnnn" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="https://github.com/mathieumarin" target="_blank"><i class="fab fa-github-square"></i></a></li>
 		</ul>
 
-		<p class="index.html"> <a href="../../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
-       
-    </footer>
+	</footer>
 
     <script src="../../../assets/js/menu.js"></script>
 
