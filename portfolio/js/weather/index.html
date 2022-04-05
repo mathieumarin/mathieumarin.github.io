@@ -52,29 +52,47 @@
         }
         header.hero-block-js { background-color: #212529}
 
-        /* Main colors */
-        body 
-        {
+        /* Main Colours */
+        .theme-js { 
             background-color: #fff4d9;
+            /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); */
+            text-align: center;
         }
 
-        .btn-solid { 
-            margin-top: 20px;
-            padding: 15px 30px;
-            display: inline-block;
-            font-size: 20px;
-            background-color: #fd7e14;
-            color: white;
+        .theme-js .box-weather { 
+            margin: 0 auto; width: 400px; max-width: 80%;
+            background-image: linear-gradient(rgb(0,0,0,0.5),rgb(0,0,0,0.5));
+            padding: 32px;
         }
 
-        .btn-solid:hover { 
-            background-color: #343a40;
-            color: #fff
+        .theme-js h3 { color: #fff; font-size: 32px; margin-bottom: 32px }
+        .theme-js p { color: #fff; font-weight: bold }
+
+        .theme-js p a { color: #fff !important; font-weight: bold }
+
+        .data-table {
+            border-collapse: collapse;
+            font-size: 18px;
+            width: 100%;
+            overflow: scroll; 
+            margin-bottom: 56px;
+            background-color: transparent;
         }
 
-        #weather-box h3 {
-            font-size: 30px;
-            margin-bottom: 25px;
+        .data-table td { padding: 12px 0; color:#fff; text-align: left; }
+
+        .data-table td:first-of-type { padding-left: 0; padding-right: 18px;  }
+
+        .data-table td:first-of-type span { background-color: #fd9843; color:#fff; padding: 4px 12px; border-radius: 5px }
+
+        .data-table td:last-of-type  { padding-left: 18px; padding-right: 0;  }
+
+        .table-lines tr { border-bottom: solid 1px #fff }
+
+        @media(max-width: 768px) {
+            .theme-js .box-weather { max-width: 95%; padding: 20px }
+            .theme-js h3 { font-size: 26px; margin-bottom: 22px; line-height: 1.3 }
+            .theme-js p { font-size: 16px }
         }
 
         /* Footer */
@@ -163,41 +181,120 @@
     <!-- main content with sections -->
     <main>
         
-        <section class="container-flex text-center" style="padding-bottom: 0">
-            <div class="col-1 text-center">
-                <button class="btn btn-solid btn-rounded" id="btn-quotes">View weather</button>
-            </div>
-    
-        </section>
+        <section class="container-flex theme-js">
 
-        <section class="container-flex text-center" id="weather-box">
-    
-    
+            <div class="box-weather">
+                <h3>Weather now in Dublin city, Ireland.</h3>
+
+                <table class="data-table table-lines" id="table-weather-dublin">
+                    <tbody>
+                        <tr>
+                            <td><span>Summary</span></td>
+                            <td>Row 1, Cell 2</td>
+                        </tr>
+                        <tr>
+                            <td><span>Temperature</span></td>
+                            <td>Row 2, Cell 2</td>
+                        </tr>
+                        <tr>
+                            <td><span>Humidity</span></td>
+                            <td>Row 3, Cell 2</td>
+                        </tr>
+                        <tr>
+                            <td><span>Pressure</span></td>
+                            <td>Row 4, Cell 2</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <p>Data from <a href="https://openweathermap.org/" target="_blank">Open Weather</a></p>
+            </div>
+
         </section>
 
     </main>
 
     <script>
 
-        document.querySelector("#btn-quotes").addEventListener("click", fetchWeather);
+       // Check initial viepwort width
+        document.addEventListener("DOMContentLoaded", checkViewportWidth);
 
-        function fetchWeather()
-        {
-            fetch("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=bc425ac2188d406c884f4fdd88b339f0")
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                console.log(data);
-                // Updates the content of the weather box with the weather data
-                document.querySelector("#weather-box").innerHTML = `
-                    <div class="col-1 text-center">
-                        <h2>Weather</h2>
-                        <h3>The weather in the UK is currently ${data.weather[0].description}</h3>
-                        <h3>The temperature is ${data.main.temp} degrees</h3>
-                    </div>
-                `;
-            })
+        function checkViewportWidth() {
+            if (document.querySelector('.container-menu')) {
+                const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+                const elemMenuList = document.querySelector('.container-menu');
+
+                if (vw >= 768) {
+                    elemMenuList.classList.add("menu-desktop");
+                    elemMenuList.classList.remove("menu-mobile");
+                }
+                else {
+                    elemMenuList.classList.add("menu-mobile");
+                    elemMenuList.classList.remove("menu-desktop");
+                }
+            }
+        }
+
+        // Monitor viepwort width
+        window.onresize = checkViewportWidth;
+
+        // Show/hide fly-out mobile menu
+        if (document.querySelector('.container-menu')) {
+            document.querySelector('.item-icon').addEventListener('click', toggleMobileMenu)
+        }
+
+        function toggleMobileMenu() {
+            //toggle hamburger icon
+            const elemIcon = document.querySelector('.item-icon');
+            const elemMenu = document.querySelector('.container-menu');
+            const elemMenuList = document.querySelector('.container-menu ul');
+            elemIcon.classList.toggle("change");
+            const elemHTML = document.querySelector('html');
+
+            // If fly-out menu is currently hidden, display it.
+            if (elemIcon.classList.contains('change')) {
+                elemMenuList.classList.add('mobile-display');
+                elemMenu.classList.add('menu-on-scroll');
+                elemHTML.classList.add('no-scroll');
+            }    
+            //if fly-out menu is currently open, close it.
+            else {
+                elemMenuList.classList.remove('mobile-display');
+                elemHTML.classList.remove('no-scroll');
+                elemMenu.classList.remove('menu-on-scroll');
+            }
+        }
+
+        // On-scroll colours
+        if (document.querySelector('.container-menu')) {
+            window.onscroll = function() {swapMenuStyle()};
+            const el_menu = document.querySelector('.container-menu');
+            const el_menu_onscroll = el_menu.offsetTop +300;
+        }
+
+        function swapMenuStyle() {
+            if (document.querySelector('.container-menu')) {
+                const el_menu = document.querySelector('.container-menu');
+                const el_menu_onscroll = el_menu.offsetTop +300;
+                if ( window.pageYOffset > el_menu_onscroll) {
+                    el_menu.classList.add("menu-on-scroll");
+                } 
+                else {
+                    el_menu.classList.remove("menu-on-scroll")
+                }
+            }
+        }
+
+        // Check initial menu scroll position
+        document.addEventListener("DOMContentLoaded", checkMenuScrollPosition);
+
+        function checkMenuScrollPosition() {
+            var y = window.scrollY;
+            if (y === 0) {
+                if (document.querySelector('.container-menu')) {
+                    const el_menu = document.querySelector('.container-menu');
+                    el_menu.classList.remove("menu-on-scroll")
+                }
+            }
         }
 
     </script>
