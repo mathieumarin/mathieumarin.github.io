@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculator with Modules | Mathieu Marin | Front-end Developer |</title>
+    <meta name="description" content="Uses an array of hexadecimal values to randomly generate a background colour for the web page.">
+
+	<!-- Stylesheets -->
+    <link rel="stylesheet" href="../../../assets/css/lunadoge.css" />
+    <link rel="stylesheet" href="../../../assets/css/css-javascript.css" />
+
+    <style>
+
+        /* Global font */
+        body { font-family: 'Roboto', serif; }
+
+        /* Menu */
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { background-color: #fd7e14 }
+        .container-menu a#btn-cta:link,
+        .container-menu a#btn-cta:visited { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { border-color: #fd7e14 }
+        .container-menu a#btn-cta:focus,
+        .container-menu a#btn-cta:hover,
+        .container-menu a#btn-cta:active { background-color: #fd9843 }
+        .container-menu.menu-desktop { background-color: #212529 }
+        .container-menu.menu-mobile { background-color: #212529 }
+        .container-menu.menu-mobile ul.mobile-display { background-color: #212529 }
+        .container-menu a:link,
+        .container-menu a:visited { color: #fff }
+        .container-menu a:focus,
+        .container-menu a:hover,
+        .container-menu a:active { color: #ced4da }
+
+        /* Hero Block */
+        header.hero-block-js h1 { color: #fff }
+        header.hero-block-js h2 {
+            color: #adb5bd;
+            font-size: calc(18px + (26 - 18) * ((100vw - 320px) / (1600 - 320)));
+        }
+        header.hero-block-js { background-color: #212529}
+
+        /* Main Colours */
+        .theme-js { 
+            background-color: #fff4d9;
+        }
+
+        .container-flex { position: relative }
+        /* ========= ENDS CUSTOM CSS FOR WEB PAGE ======= */
+
+        .calculator {
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            width: 400px;
+            margin-left: auto; margin-right: auto;
+        }
+
+        .calculator-screen {
+            width: 100%;
+            font-size: 4.25rem;
+            height: 80px;
+            border: none;
+            background-color: #252525;
+            color: #fff;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+
+        button {
+            height: 60px;
+            background-color: #fff;
+            border-radius: 3px;
+            border: 1px solid #c4c4c4;
+            background-color: transparent;
+            font-size: 2rem;
+            color: #333;
+            background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
+            text-shadow: 0 1px rgba(255,255,255,.4);
+        }
+
+        button:hover {
+            background-color: #eaeaea;
+        }
+
+        .operator {
+            color: #495057;
+        }
+
+        .all-clear {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+            color: #fff;
+        }
+
+         .all-clear:hover {
+            background-color: #fd7e14;
+        }
+
+        .equal-sign {
+            background-color: #495057;
+            border-color: #495057;
+            color: #fff;
+            height: 100%;
+            grid-area: 2 / 4 / 6 / 5;
+        }
+
+        .equal-sign:hover {
+            background-color: #495057;
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer h2 { color: #fff; }
+        footer h3 { color: #fd7e14; }
+        footer { background-color: #343a40; }
+        .footer-links, .footer-icons {  color: #fff; }
+
+        /**
+        * ----------------------------------------
+        * animation scale-in-left
+        * ----------------------------------------
+        */
+
+        .scale-in-left {
+	        -webkit-animation: scale-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        @-webkit-keyframes scale-in-left {
+        0% {
+            -webkit-transform: scale(0);
+                    transform: scale(0);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        }
+        @keyframes scale-in-left {
+        0% {
+            -webkit-transform: scale(0);
+                    transform: scale(0);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+            -webkit-transform-origin: 0% 50%;
+                    transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        }
+
+    </style>
+
+	<!-- Font Awesome 6.1 icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+
+<body>
+
+    <!-- navigation menu -->
+    <nav class="container-menu menu-desktop menu-sticky">
+        <a href="#"><img src="../../../assets/img/website-logo-custom.png" alt="website logo"></a>
+        <ul class="">
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../../../portfolio/index.html">Portfolio</a></li>
+            <li><a href="../../../contact/index.html" id="btn-cta" class="btn btn-primary btn-rounded"><span>Contact</span><i class="fas fa-arrow-right"></i></a></li>
+        </ul>
+        <div class="item-icon">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </nav>
+        
+    <!-- header hero block -->
+    <header class="hero-block hero-block-js">
+        <div class="hero-text-container">
+            <h1 class="scale-in-left">Calculator with Modules <span>JavaScript Project</span></h1>
+            <h2 class="scale-in-left">A basic calculator that uses export/import statements to share code with a JavaScript module file. View my complete collection of <a href="../index.html">JavaScript projects</a>.</h2>
+        </div>
+    </header>
+
+    <!-- main content with sections -->
+    <main>
+        
+        <section class="container-flex theme-js">
+
+            <div class="calculator">
+                <input type="text" class="calculator-screen" value="" disabled />
+          
+                <div class="calculator-keys">
+                  <button type="button" class="operator" value="+">+</button>
+                  <button type="button" class="operator" value="-">-</button>
+                  <button type="button" class="operator" value="*">&times;</button>
+                  <button type="button" class="operator" value="/">&divide;</button>
+          
+                  <button type="button" value="7">7</button>
+                  <button type="button" value="8">8</button>
+                  <button type="button" value="9">9</button>
+          
+                  <button type="button" value="4">4</button>
+                  <button type="button" value="5">5</button>
+                  <button type="button" value="6">6</button>
+          
+                  <button type="button" value="1">1</button>
+                  <button type="button" value="2">2</button>
+                  <button type="button" value="3">3</button>
+          
+                  <button type="button" value="0">0</button>
+                  <button type="button" class="decimal" value=".">.</button>
+                  <button type="button" class="all-clear" value="all-clear">AC</button>
+          
+                  <button type="button" class="equal-sign operator" value="=">=</button>
+                </div>
+              </div>      
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript code start below -->
+    <script>
+
+        const calculator = {
+        displayValue: '0',
+        firstOperand: null,
+        waitingForSecondOperand: false,
+        operator: null,
+        };
+
+        function inputDigit(digit) {
+        const { displayValue, waitingForSecondOperand } = calculator;
+
+        if (waitingForSecondOperand === true) {
+            calculator.displayValue = digit;
+            calculator.waitingForSecondOperand = false;
+        } else {
+            calculator.displayValue =
+            displayValue === '0' ? digit : displayValue + digit;
+        }
+        }
+
+        function inputDecimal(dot) {
+        if (calculator.waitingForSecondOperand === true) {
+            calculator.displayValue = '0.';
+            calculator.waitingForSecondOperand = false;
+            return;
+        }
+
+        if (!calculator.displayValue.includes(dot)) {
+            calculator.displayValue += dot;
+        }
+        }
+
+        function handleOperator(nextOperator) {
+        const { firstOperand, displayValue, operator } = calculator;
+        const inputValue = parseFloat(displayValue);
+
+        if (operator && calculator.waitingForSecondOperand) {
+            calculator.operator = nextOperator;
+            return;
+        }
+
+        if (firstOperand == null && !isNaN(inputValue)) {
+            calculator.firstOperand = inputValue;
+        } else if (operator) {
+            const currentValue = firstOperand || 0;
+            const result = calculate(currentValue, inputValue, operator);
+
+            calculator.displayValue = String(result);
+            calculator.firstOperand = result;
+        }
+
+        calculator.waitingForSecondOperand = true;
+        calculator.operator = nextOperator;
+        }
+
+        function calculate(firstOperand, secondOperand, operator) {
+        if (operator === '+') {
+            return firstOperand + secondOperand;
+        } else if (operator === '-') {
+            return firstOperand - secondOperand;
+        } else if (operator === '*') {
+            return firstOperand * secondOperand;
+        } else if (operator === '/') {
+            return firstOperand / secondOperand;
+        }
+
+        return secondOperand;
+        }
+
+        function resetCalculator() {
+        calculator.displayValue = '0';
+        calculator.firstOperand = null;
+        calculator.waitingForSecondOperand = false;
+        calculator.operator = null;
+        }
+
+        function updateDisplay() {
+        const display = document.querySelector('.calculator-screen');
+        display.value = calculator.displayValue;
+        }
+
+        updateDisplay();
+
+        const keys = document.querySelector('.calculator-keys');
+        keys.addEventListener('click', event => {
+        const { target } = event;
+        if (!target.matches('button')) {
+            return;
+        }
+
+        if (target.classList.contains('operator')) {
+            handleOperator(target.value);
+            updateDisplay();
+            return;
+        }
+
+        if (target.classList.contains('decimal')) {
+            inputDecimal(target.value);
+            updateDisplay();
+            return;
+        }
+
+        if (target.classList.contains('all-clear')) {
+            resetCalculator();
+            updateDisplay();
+            return;
+        }
+
+        inputDigit(target.value);
+        updateDisplay();
+        });
+
+   </script>
+
+    
+    <!-- footer -->
+    <footer>
+
+		<h2>Mathieu Marin</h2>
+
+		<h3>Excellence in digital creation</h3>
+
+		<ul class="footer-links">
+			<li><a href="../../../index.html">Home</a></li>
+			<li><a href="../../index.html">Portfolio</a></li>
+			<li><a href="../../../contact/index.html">Contact</a></li>
+		</ul>
+
+		<ul class="footer-icons">
+			<li><a href="https://github.com/mathieumarin" target="_blank"><i class="fab fa-github-square"></i></a></li>
+		</ul>
+
+	</footer>
+
+    <script src="../../../assets/js/menu.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
