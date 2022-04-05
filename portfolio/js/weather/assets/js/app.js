@@ -2,7 +2,7 @@ const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
 async function populatetableRows() {
 
-    await fetch('https://api.openweathermap.org/data/2.5/weather?q=dublin,ie&units-metric&APPID=bc425ac2188d406c884f4fdd88b339f0')
+    await fetch('https://api.openweathermap.org/data/2.5/weather?q=dublin,ie&units=metric&APPID=bc425ac2188d406c884f4fdd88b339f0')
 
     .then(response => {
             if (response.status !== 200) {
@@ -17,11 +17,11 @@ async function populatetableRows() {
                     </tr>
                     <tr>
                         <td><span>Temperature</span></td>
-                        <td>${data["main"]["temp"]}</td>
+                        <td>${data["main"]["temp"] + " &deg;C"}</td>
                     </tr>
                     <tr>
                         <td><span>Humidity</span></td>
-                        <td>${data["main"]["humidity"] + " &deg;C"}</td>
+                        <td>${data["main"]["humidity"] + " %"}</td>
                     </tr>
                     <tr>
                         <td><span>Pressure</span></td>
